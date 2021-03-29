@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- This is the main page with the bowlers information -->
+@model IndexViewModel
+<h1 class="text-center">@(Model.TeamName == null ? "All" : Model.TeamName) Bowlers</h1>
+@foreach (var x in Model.Bowlers)
+{
+    <div class="container border">
+        <h4>Bowler: @x.BowlerFirstName @x.BowlerMiddleInit @x.BowlerLastName</h4>
+        <p>Address: @x.BowlerAddress @x.BowlerCity, @x.BowlerState @x.BowlerZip </p>
+        <p>Phone: @x.BowlerPhoneNumber</p>
+    </div>
+
+}
+<div page-info="@Model.PageNumInfo" page-url-teamName ="@Model.TeamName"  page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-info" class="btn-group pull-right m-1"></div>

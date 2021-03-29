@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Teams>
+<!-- Create the list of Teams to select -->
+<a class="text-black-50 btn btn-block btn-outline-info" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home</a>
+
+
+@foreach (var x in Model)
+{
+    <a class="text-black-50 btn btn-block @(x.TeamName == ViewBag.SelectedTeam ? "btn-info" : "btn-outline-info")" 
+       asp-action="Index" asp-controller="Home" asp-route-teamid="@x.TeamId" asp-route-teamName="@x.TeamName" asp-route-pageNum="1">@x.TeamName</a>
+}
